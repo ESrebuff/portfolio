@@ -1,9 +1,9 @@
 "use client"
 import Link from "next/link";
 import NavLink from "./NavLink";
-import { useState } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
-import MenuOverlay from "./MenuOverlay";
+import { useEffect, useState } from "react";
+import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from "@heroicons/react/16/solid";
+import MenuOverlay from "../MenuOverlay";
 
 const navLinks = [
     {
@@ -22,11 +22,28 @@ const navLinks = [
 
 const NavBar = () => {
     const [navBarOpen, setNavBarOpen] = useState(true);
+    const [theme, setTheme] = useState("dark");
+
+    useEffect(() => {
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        setTheme(savedTheme);
+    }, []);
+
+    const toggleTheme = () => {
+        const newTheme = theme === "dark" ? "light" : "dark";
+        setTheme(newTheme);
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+    };
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-20 bg-[#121212] bg-opacity-100">
-            <div className="flex flex-wrap items-center justify-between mx-auto px-4 py-2">
+        <nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-20 bg-[#121212] bg-opacity-100">
+            <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
                 <Link href={"/"} className="text-3xl text-white font-semibold">Esteban</Link>
+                <button onClick={toggleTheme} className="p-2 rounded-full text-foreground">
+                    {theme === "dark" ? <SunIcon className="h-6 w-6" /> : <MoonIcon className="h-6 w-6" />}
+                </button>
                 <div className="mobile-menu block md:hidden">
                     {
                         !navBarOpen ? (

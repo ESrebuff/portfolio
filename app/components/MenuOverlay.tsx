@@ -1,4 +1,4 @@
-import NavLink from "./NavLink"
+import NavLink from "./NavBar/NavLink"
 
 const MenuOverlay = ({ links }: { links: { title: string, path: string }[] }) => {
     return (

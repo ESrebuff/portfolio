@@ -1,7 +1,5 @@
 import React from "react";
-import Image from "next/image";
 import { CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline";
-import Link from "next/link";
 
 const ProjectCard = ({ imgUrl, title, description, link, codeLink }: { imgUrl: string, title: string, description: string, link: string | undefined, codeLink: string | undefined }) => {
     return (

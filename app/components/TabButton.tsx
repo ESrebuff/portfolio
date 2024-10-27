@@ -6,7 +6,7 @@ const TabButton = ({ active, selectTab, children }: {
     children: ReactNode;
 
 }) => {
-    const buttonClasses = active ? 'text-white border-b border-purple-500' : 'text-[#ADB7BE]'
+    const buttonClasses = active ? 'text-white border-b border-primary' : 'text-[#ADB7BE]'
 
     return (
         <button onClick={selectTab} >
