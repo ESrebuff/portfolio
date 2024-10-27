@@ -1,40 +1,56 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import SendEmailAPI from '../api/send';
+import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
+import SendEmailAPI from "../api/send";
 import Link from "next/link";
 import Image from "next/image";
 import GithubIcon from "../../public/github-icon.svg";
 import LinkedinIcon from "../../public/linkedin-icon.svg";
 
+interface FormData {
+    email: string;
+    subject: string;
+    message: string;
+}
+
+interface Notification {
+    show: boolean;
+    message: string;
+    type: "success" | "error";
+}
+
 const EmailSection = () => {
-    const [form, setForm] = useState({
-        email: '',
-        subject: '',
-        message: '',
+    const [form, setForm] = useState<FormData>({
+        email: "",
+        subject: "",
+        message: "",
     });
     const [triggerSend, setTriggerSend] = useState(false);
-    const [notification, setNotification] = useState({ show: false, message: '', type: '' });
+    const [notification, setNotification] = useState<Notification>({
+        show: false,
+        message: "",
+        type: "success",
+    });
 
-    const handleChange = (e) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setForm({
             ...form,
             [e.target.name]: e.target.value,
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
         setTriggerSend(true);
     };
 
     const handleSuccess = () => {
-        setNotification({ show: true, message: 'Message envoyé avec succès!', type: 'success' });
-        setForm({ email: '', subject: '', message: '' });
+        setNotification({ show: true, message: "Message envoyé avec succès!", type: "success" });
+        setForm({ email: "", subject: "", message: "" });
         setTriggerSend(false);
     };
 
-    const handleError = (error) => {
-        setNotification({ show: true, message: 'Une erreur s\'est produite. Veuillez réessayer.', type: 'error' });
+    const handleError = (error: any) => {
+        setNotification({ show: true, message: "Une erreur s'est produite. Veuillez réessayer.", type: "error" });
         console.error(error);
         setTriggerSend(false);
     };
@@ -49,20 +65,20 @@ const EmailSection = () => {
     }, [notification]);
 
     return (
-        <section className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative" id="contact">
+        <section className="grid md:grid-cols-2 my-12 py-24 gap-4 relative" id="contact">
             {notification.show && (
                 <div
-                    className={`fixed top-10 right-4 z-50 p-4 rounded-lg ${notification.type === 'success' ? 'bg-green-500' : 'bg-red-500'
-                        } text-white`}
+                    className={`fixed top-10 right-4 z-50 p-4 rounded-lg ${notification.type === "success" ? "bg-green-500" : "bg-red-500"
+                        } text-foreground`}
                 >
                     {notification.message}
                 </div>
             )}
 
-            <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
+            <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
             <div className="z-10">
-                <h2 className="text-xl font-bold text-white my-2">Contactez-moi</h2>
-                <p className="text-[#ADB7BE] mb-4 max-w-md">
+                <h2 className="text-xl font-bold text-foreground my-2">Contactez-moi</h2>
+                <p className="text-muted mb-4 max-w-md">
                     Je suis actuellement à la recherche de nouvelles opportunités. N'hésitez pas à me contacter pour toute question ou juste pour dire bonjour!
                 </p>
                 <div className="socials flex flex-row gap-2">
@@ -77,7 +93,7 @@ const EmailSection = () => {
             <div>
                 <form className="flex flex-col" onSubmit={handleSubmit}>
                     <div className="mb-6">
-                        <label className="text-white block mb-2 text-sm font-medium" htmlFor="email">
+                        <label className="text-foreground block mb-2 text-sm font-medium" htmlFor="email">
                             Votre email
                         </label>
                         <input
@@ -85,13 +101,12 @@ const EmailSection = () => {
                             name="email"
                             value={form.email}
                             onChange={handleChange}
-
-                            className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                            className="bg-darkBg border border-borderDark placeholder-muted text-foreground text-sm rounded-lg block w-full p-2.5"
                             placeholder="exemple@domaine.com"
                         />
                     </div>
                     <div className="mb-6">
-                        <label className="text-white block mb-2 text-sm font-medium" htmlFor="subject">
+                        <label className="text-foreground block mb-2 text-sm font-medium" htmlFor="subject">
                             Objet
                         </label>
                         <input
@@ -100,12 +115,12 @@ const EmailSection = () => {
                             value={form.subject}
                             onChange={handleChange}
                             required
-                            className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                            className="bg-darkBg border border-borderDark placeholder-muted text-foreground text-sm rounded-lg block w-full p-2.5"
                             placeholder="Sujets divers"
                         />
                     </div>
                     <div className="mb-6">
-                        <label className="text-white block mb-2 text-sm font-medium" htmlFor="message">
+                        <label className="text-foreground block mb-2 text-sm font-medium" htmlFor="message">
                             Message
                         </label>
                         <textarea
@@ -113,30 +128,20 @@ const EmailSection = () => {
                             value={form.message}
                             onChange={handleChange}
                             required
-                            className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 min-h-[150px]"
+                            className="bg-darkBg border border-borderDark placeholder-muted text-foreground text-sm rounded-lg block w-full p-2.5 min-h-[150px]"
                             placeholder="Votre message ici..."
                         />
                     </div>
                     <button
                         type="submit"
-                        className="bg-primary hover:bg-primary text-white font-medium py-2.5 px-5 rounded-lg w-full"
+                        className="bg-primary hover:bg-primary-700 text-white font-medium py-2.5 px-5 rounded-lg w-full"
                     >
                         Envoyer
                     </button>
-                    {
-                        notification.show && (
-                            <p className="text-green-500 text-sm mt-2">Email sent successfully !</p>
-                        )
-                    }
                 </form>
             </div>
 
-            <SendEmailAPI
-                formData={form}
-                onSuccess={handleSuccess}
-                onError={handleError}
-                trigger={triggerSend}
-            />
+            <SendEmailAPI formData={form} onSuccess={handleSuccess} onError={handleError} trigger={triggerSend} />
         </section>
     );
 };

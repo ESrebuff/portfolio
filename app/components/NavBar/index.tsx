@@ -7,11 +7,11 @@ import MenuOverlay from "../MenuOverlay";
 
 const navLinks = [
     {
-        title: "About",
+        title: "A propos",
         path: "#about",
     },
     {
-        title: "Projects",
+        title: "Projets",
         path: "#projects",
     },
     {
@@ -38,20 +38,22 @@ const NavBar = () => {
     };
 
     return (
-        <nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-20 bg-[#121212] bg-opacity-100">
+        <nav className="fixed mx-auto border border-borderDark top-0 left-0 right-0 z-20 bg-background bg-opacity-100">
             <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
-                <Link href={"/"} className="text-3xl text-white font-semibold">Esteban</Link>
-                <button onClick={toggleTheme} className="p-2 rounded-full text-foreground">
-                    {theme === "dark" ? <SunIcon className="h-6 w-6" /> : <MoonIcon className="h-6 w-6" />}
-                </button>
+                <div>
+                    <button onClick={toggleTheme} className="p-2 rounded-full text-foreground">
+                        {theme === "dark" ? <SunIcon className="h-6 w-6" /> : <MoonIcon className="h-6 w-6" />}
+                    </button>
+                    <Link href={"/"} className="text-3xl text-foreground font-semibold">Esteban</Link>
+                </div>
                 <div className="mobile-menu block md:hidden">
                     {
                         !navBarOpen ? (
-                            <button onClick={() => setNavBarOpen(true)} className="flex items-center px-3 py-2 border rounded slate-200 hover:text-white hover:border-white text-slate-200">
+                            <button onClick={() => setNavBarOpen(true)} className="flex items-center px-3 py-2 border border-foreground rounded hover:text-foreground text-foreground">
                                 <Bars3Icon className="h-5 w-5" />
                             </button>
                         ) : (
-                            <button onClick={() => setNavBarOpen(false)} className="flex items-center px-3 py-2 border rounded slate-200 hover:text-white hover:border-white text-slate-200">
+                            <button onClick={() => setNavBarOpen(false)} className="flex items-center px-3 py-2 border border-foreground rounded hover:text-foreground text-foreground">
                                 <XMarkIcon className="h-5 w-5" />
                             </button>
                         )

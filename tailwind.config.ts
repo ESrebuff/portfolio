@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-const colors = require("tailwindcss/colors")
 
 const config: Config = {
   content: [
@@ -16,6 +15,8 @@ const config: Config = {
         secondary: "var(--secondary)",
         accent: "var(--accent)",
         muted: "var(--text-muted)",
+        borderDark: "var(--border-dark)",
+        darkBg: "var(--dark-bg)",
       },
     },
   },

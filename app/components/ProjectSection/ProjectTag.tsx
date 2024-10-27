@@ -4,8 +4,8 @@ const ProjectTag = ({ name, onClick, isSelected }: {
     isSelected: boolean
 }) => {
     const buttonStyles = isSelected
-        ? "text-white border-primary"
-        : "text-[#ADB7BE] border-slate-600 hover:border-white";
+        ? "text-foreground border-primary"
+        : "text-muted border-slate-600 hover:border-white";
 
     return (
         <button

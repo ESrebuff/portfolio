@@ -15,9 +15,9 @@ const ProjectCard = ({ imgUrl, title, description, link, codeLink }: { imgUrl: s
                             href={link}
                             target="_blank"
                             rel="noreferrer"
-                            className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white mr-4 group/link"
+                            className="h-14 w-14 border-2 relative rounded-full border-muted hover:border-white mr-4 group/link"
                         >
-                            <EyeIcon className="h-10 w-10 text-[#ADB7BE] group-hover/link:text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+                            <EyeIcon className="h-10 w-10 text-muted group-hover/link:text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
                         </a>
                     }
                     {codeLink &&
@@ -25,16 +25,16 @@ const ProjectCard = ({ imgUrl, title, description, link, codeLink }: { imgUrl: s
                             href={codeLink}
                             target="_blank"
                             rel="noreferrer"
-                            className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
+                            className="h-14 w-14 border-2 relative rounded-full border-muted hover:border-white group/link"
                         >
-                            <CodeBracketIcon className="h-10 w-10 text-[#ADB7BE] group-hover/link:text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+                            <CodeBracketIcon className="h-10 w-10 text-muted group-hover/link:text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
                         </a>
                     }
                 </div>
             </div>
-            <div className="bg-[#181818] rounded-b-xl py-6 px-4 text-white">
+            <div className="bg-darkBg rounded-b-xl py-6 px-4 text-foreground">
                 <h5 className="font-lg font-semibold">{title}</h5>
-                <p className="text-[#ADB7BE]">{description}</p>
+                <p className="text-muted">{description}</p>
             </div>
         </div>
     );
