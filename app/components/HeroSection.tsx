@@ -36,15 +36,17 @@ const HeroSection = () => {
                         </button>
                     </div>
                 </div>
-                <div className="col-span-4 place-self-center mt-4 lg:mt-0">
-                    <div className="rounded-full bg-darkBg w-[250px] h-[250px] lg:w-[360px] lg:h-[360px] relative">
+                <div className="flex col-span-4 place-self-center mt-4 w-full justify-center max-lg:mt-20 lg:mt-0">
+                    <div className="w-[250px] h-[250px] lg:w-[360px] lg:h-[360px] relative">
+                        <div className="rounded bg-darkBg w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] absolute max-md:top-[150px] max-md:left-[60%] top-[190px] lg:top-[260px] left-[75%] transform -translate-x-1/2 -translate-y-1/2 z-0"></div>
                         <Image
-                            className="rounded-full absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                            className="absolute rounded transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                             src="/images/hero-image.jpg"
                             alt="hero image"
                             width={350}
                             height={350}
                         />
+
                     </div>
                 </div>
             </div>
