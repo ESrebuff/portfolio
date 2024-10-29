@@ -12,9 +12,9 @@ export default function Home() {
       <NavBar />
       <div className="container mt-24 mx-auto px-2 md:px-20 py-4 ">
         <HeroSection />
-        <Qualifications />
         <AboutSection />
         <ProjectsSection />
+        <Qualifications />
         <EmailSection />
         <Footer />
       </div>

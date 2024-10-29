@@ -2,9 +2,8 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import SendEmailAPI from "../api/send";
 import Link from "next/link";
-import Image from "next/image";
-import GithubIcon from "../../public/github-icon.svg";
-import LinkedinIcon from "../../public/linkedin-icon.svg";
+import Linkedin from "./icons/Linkedin";
+import GitHub from "./icons/GitHub";
 
 interface FormData {
     email: string;
@@ -82,11 +81,11 @@ const EmailSection = () => {
                     Je suis actuellement à la recherche de nouvelles opportunités. N'hésitez pas à me contacter pour toute question ou juste pour dire bonjour!
                 </p>
                 <div className="socials flex flex-row gap-2">
-                    <Link href="https://github.com" target="_blank">
-                        <Image src={GithubIcon} alt="Icône GitHub" />
+                    <Link href="https://github.com/ESrebuff" target="_blank">
+                        <GitHub />
                     </Link>
-                    <Link href="https://linkedin.com" target="_blank">
-                        <Image src={LinkedinIcon} alt="Icône LinkedIn" />
+                    <Link href="https://www.linkedin.com/in/esteban-rebuff%C3%A9-mareau-aab8bb20a/" target="_blank">
+                        <Linkedin />
                     </Link>
                 </div>
             </div>

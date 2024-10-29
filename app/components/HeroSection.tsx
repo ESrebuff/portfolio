@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
+import DownloadCVButton from "./Qualifications/DownloadCVButton ";
 
 const HeroSection = () => {
     return (
@@ -30,10 +32,8 @@ const HeroSection = () => {
                         Curieux et toujours en quête de nouvelles technologies, je suis prêt à transformer vos idées en réalité digitale.
                     </p>
                     <div>
-                        <button className="px-6 py-3 rounded-full w-full sm:w-fit sm:mr-4 bg-gradient-to-br from-blue-500 via-primary to-secondary hober:bg-slate-200 text-white">Contact</button>
-                        <button className="px-1 py-1 rounded-full w-full sm:w-fit bg-gradient-to-br from-blue-500 via-primary to-secondary hover:bg-slate-800 text-foreground mt-3">
-                            <span className="block bg-background hober:bg-state rounded-full px-5 py-2">Télécharger mon CV</span>
-                        </button>
+                        <Link href="#contact"><button className="px-6 py-3 rounded-full w-full sm:w-fit sm:mr-4 bg-gradient-to-br from-blue-500 via-primary to-secondary hober:bg-slate-200 text-white">Contact</button></Link>
+                        <DownloadCVButton />
                     </div>
                 </div>
                 <div className="flex col-span-4 place-self-center mt-4 w-full justify-center max-lg:mt-20 lg:mt-0">
