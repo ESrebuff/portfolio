@@ -4,13 +4,13 @@ const ProjectTag = ({ name, onClick, isSelected }: {
     isSelected: boolean
 }) => {
     const buttonStyles = isSelected
-        ? "text-foreground border-primary"
-        : "text-muted border-slate-600 hover:border-white";
+        ? "text-white bg-muted border-muted scale-105"
+        : "text-muted border-muted hover:text-white hover:bg-muted hover:border-muted";
 
     return (
         <button
             onClick={() => onClick(name)}
-            className={`border-2 rounded-full px-6 py-3 text-xl cursor-pointer ${buttonStyles}`}
+            className={`border-2 rounded-full px-4 text-md cursor-pointer transition-all duration-200 ease-in-out ${buttonStyles}`}
         >
             {name}
         </button>

@@ -8,7 +8,9 @@ const ProjectCard = ({ imgUrl, title, description, link, codeLink }: { imgUrl: s
                 className="group rounded-t h-52 bg-center relative overflow-hidden"
                 style={{ backgroundImage: `url(${imgUrl})`, backgroundSize: "cover" }}
             >
-                <div className="overlay absolute top-0 left-0 w-full h-full bg-[#181818] bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-80 transition-all duration-500 items-center justify-center">
+                {/* On rend l'overlay visible par défaut sur mobile (écrans petits) */}
+                <div className="overlay absolute top-0 left-0 w-full h-full bg-[#181818] bg-opacity-80 flex items-center justify-center transition-all duration-500 
+                    md:bg-opacity-0 md:hidden md:group-hover:flex md:group-hover:bg-opacity-80">
 
                     {link &&
                         <a
