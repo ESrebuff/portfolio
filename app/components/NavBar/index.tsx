@@ -25,7 +25,7 @@ const navLinks = [
 ]
 
 const NavBar = () => {
-    const [navBarOpen, setNavBarOpen] = useState(true);
+    const [navBarOpen, setNavBarOpen] = useState(false);
     const [theme, setTheme] = useState("dark");
 
     useEffect(() => {

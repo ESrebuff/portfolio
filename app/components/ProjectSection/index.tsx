@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import ProjectCard from "./ProjectCard";
-import ProjectTag from "./ProjectTag";
+import Tag from "../ui/Tag";
 
 // Déclaration des types pour les données des projets
 type Project = {
@@ -95,7 +95,7 @@ const ProjectsSection = () => {
             </h2>
             <div className="flex flex-row justify-center items-center gap-2 text-foreground my-6">
                 {tags.map((tag) => (
-                    <ProjectTag
+                    <Tag
                         key={tag}
                         name={tag}
                         onClick={handleTagChange}

@@ -24,8 +24,8 @@ const Qualifications = () => {
             <h2 className="text-center text-4xl font-bold text-foreground mt-4">
                 Qualifications
             </h2>
-            <span className="text-lg text-muted">Mon parcours professionnel</span>
-            <div className="max-w-xl mx-auto pt-6">
+            <span className="text-md italic text-muted mb-8 md:mb-12">Mon parcours professionnel</span>
+            <div className="max-w-xl mx-auto">
                 <TabNavigation toggleState={toggleState} setToggleState={setToggleState} />
                 <div className="grid justify-center">
                     {toggleState === 1 && <QualificationList data={educationData} condition={true} />}
