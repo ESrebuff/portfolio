@@ -12,9 +12,13 @@ export default function Home() {
       <NavBar />
       <div className="container mt-24 mx-auto px-2 md:px-20 py-4 ">
         <HeroSection />
+        <div className="w-full border-t border-borderDark my-32"></div>
         <AboutSection />
+        <div className="w-full border-t border-borderDark my-32"></div>
         <ProjectsSection />
+        <div className="w-full border-t border-borderDark my-32"></div>
         <Qualifications />
+        <div className="w-full border-t border-borderDark my-32"></div>
         <EmailSection />
         <Footer />
       </div>

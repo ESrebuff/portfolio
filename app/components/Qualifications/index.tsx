@@ -20,7 +20,7 @@ const Qualifications = () => {
     ];
 
     return (
-        <section className="flex flex-col items-center bg-background text-foreground pt-24" id="qualifications">
+        <section className="flex flex-col items-center bg-background text-foreground" id="qualifications">
             <h2 className="text-center text-4xl font-bold text-foreground mt-4">
                 Qualifications
             </h2>

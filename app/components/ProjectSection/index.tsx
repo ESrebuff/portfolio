@@ -89,7 +89,7 @@ const ProjectsSection = () => {
     const tags = ["Tout", "Front-End", "Back-End", "Test"];
 
     return (
-        <section className="py-24" id="projects">
+        <section id="projects">
             <h2 className="text-center text-4xl font-bold text-foreground mt-4 mb-8 md:mb-12">
                 Mes Projets
             </h2>

@@ -64,7 +64,7 @@ const EmailSection = () => {
     }, [notification]);
 
     return (
-        <section className="grid md:grid-cols-2 my-12 py-24 gap-4 relative" id="contact">
+        <section className="grid md:grid-cols-2 gap-4 relative" id="contact">
             {notification.show && (
                 <div
                     className={`fixed top-10 right-4 z-50 p-4 rounded-lg ${notification.type === "success" ? "bg-green-500" : "bg-red-500"
